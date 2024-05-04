@@ -18,7 +18,7 @@ ModuleVersion = '0.0.1'
 # CompatiblePSEditions = @()
 
 # ID used to uniquely identify this module
-GUID = '650951ad-5073-4dbe-bff9-46f3f8b4e848'
+GUID = '40f6dbcb-e24d-4a3f-9977-78a91eb95461'
 
 # Author of this module
 Author = 'Jack den Ouden'
@@ -69,7 +69,7 @@ Description = 'Modulefile for module ''PwshSQL'''
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = 'ConvertTo-SQLInsert'
+FunctionsToExport = 'ConvertTo-SQLInsert', 'Invoke-SQLInsert'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

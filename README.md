@@ -8,3 +8,13 @@ Yet another SQL Powershell module pull protection test
 
 ## Copyright
 © 2020-2024 SysadminHeaven. All rights reserved.
+
+# Example to do bulk statements
+```
+if (Test-Path .\test.sql) {
+    Remove-Item .\test.sql
+}
+$object | Split-PSObject -SplitSize 998 | %{
+    ConvertTo-SQLInsert -TableName "Customers" -Object $_.object | Out-File -FilePath ".\test.sql" -Append
+}
+```

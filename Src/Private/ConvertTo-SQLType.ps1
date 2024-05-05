@@ -9,6 +9,8 @@ function ConvertTo-SQLType {
         - System.Int32
         - System.DateTime
         - System.Boolean
+        
+        If the value is $null it will return "NULL".
     .PARAMETER value
         The value that needs to be converted to a SQL type.
     .NOTES
@@ -30,12 +32,17 @@ function ConvertTo-SQLType {
         ConvertTo-SQLType -value $false
     #>
     param(
-        [Parameter(Mandatory)]
+        [Parameter()]
+        [AllowEmptyString()]
         [object]$value
     )
+
+    if ($value -eq $null) {
+        return "NULL"
+    }
     switch ($value.GetType().FullName) {
         "System.String" {
-            "'$value'"
+            "'$($value.Replace("'", "''"))'"
         }
         "System.Int32" {
             "'$value'"
@@ -47,7 +54,7 @@ function ConvertTo-SQLType {
             "'$(if ($value) {1} else {0})'"
         }
         default {
-            "'$value'"
+            "'$($value.ToString().Replace("'", "''"))'"
         }
     }
 }

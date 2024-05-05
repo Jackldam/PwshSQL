@@ -30,7 +30,7 @@ $PSModuleParams = @{
     BuildType     = "build"
 }
 
-Build-PSModule @PSModuleParams
+Build-PSModule @PSModuleParams -Verbose
 
 #endregion
 
